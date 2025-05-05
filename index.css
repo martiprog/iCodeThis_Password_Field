@@ -1,0 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+:root {
+    --bg-color: #f4f6f8;
+    --theme-color: #112c4d;
+    --placeholder-color: #3a3a3a;
+    --container-color: #fff;
+    --button-color: #fff;
+    --error-color: rgb(218, 33, 0);
+}
+
+body {
+    height: 100vh;
+    background: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: clamp(400px, 60%, 500px);
+    background: var(--container-color);
+    padding: 4rem 3rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    box-shadow: 1rem 2rem 2rem 0.5rem rgba(0, 0, 0, 0.05);
+}
+
+h1,
+p,
+label,
+a {
+    color: var(--theme-color)
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+.material-symbols-outlined {
+    color: var(--theme-color);
+    font-size: 1.3rem;
+    font-variation-settings: 'FILL' 0,
+        'wght' 200,
+        'GRAD' 0,
+        'opsz' 24
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-info img {
+    width: 2.5rem;
+    border-radius: 50%;
+}
+
+.profile-details .details-job,
+.password-field-form label {
+    font-size: 0.8rem;
+}
+
+.password-field-form {
+    width: 100%;
+}
+
+.profile-details .details-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 0.3rem;
+}
+
+.password-input-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+label {
+    font-weight: 500;
+}
+
+.form-stay-signed-wrapper {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.visibility-icon {
+    margin-top: 2.1rem;
+    cursor: pointer;
+}
+
+.password-input-field {
+    width: 100%;
+    height: 2.5rem;
+    border: 1px solid var(--theme-color);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-left: 0.5rem;
+    margin-top: 0.2rem;
+    transition: border 0.3s;
+}
+
+.password-input-field input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding-right: 0.2rem;
+    color: var(--placeholder-color);
+}
+
+.password-input-field:has(input.incorrect-password) {
+    border: 1px solid var(--error-color);
+    animation: shake 0.2s forwards;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(0.5rem);
+    }
+
+    75% {
+        transform: translateX(-0.5rem);
+    }
+
+    100% {
+        transform: translateX(0rem);
+    }
+}
+
+.confirm-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.8rem 0;
+}
+
+.stay-signed {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.stay-signed label {
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.stay-signed-toggle {
+    width: 2.6rem;
+    aspect-ratio: 1.8;
+    border: 1px solid var(--theme-color);
+    border-radius: 100px;
+    position: relative;
+}
+
+.toggle-circle {
+    position: absolute;
+    height: 70%;
+    aspect-ratio: 1;
+    background: var(--theme-color);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10%;
+    transition: left 0.2s;
+}
+
+.stay-signed input {
+    display: none;
+}
+
+.stay-signed:has(input:checked) .toggle-circle {
+    left: calc(1.35rem);
+}
+
+.confirm-wrapper button {
+    padding: 0.6rem 0.5rem;
+    border: none;
+    outline: none;
+    background: var(--theme-color);
+    color: var(--button-color);
+    border-radius: 5px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    letter-spacing: 0.6px;
+}
+
+.reset-password {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #121212;
+        --theme-color: #e6e6e6;
+        --placeholder-color: #ffffff;
+        --container-color: #1e1e1e;
+        --button-color: #000;
+        --error-color: tomato;
+
+    }
+}
